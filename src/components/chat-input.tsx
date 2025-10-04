@@ -1,5 +1,5 @@
 import { chatModels } from '@/lib/ai/models';
-import { ArrowUpIcon, CpuIcon } from '@phosphor-icons/react';
+import { ArrowUp, Cpu, Loader2, Square } from 'lucide-react';
 import { memo, startTransition, useEffect, useState } from 'react';
 import {
 	PromptInput,
@@ -23,7 +23,6 @@ import { saveChatModelAsCookie } from '../app/(chat)/actions';
 import { SuggestedActions } from '@/components/suggested-actions';
 import { useChatMessages, useChatActions, useChatStatus } from '@ai-sdk-tools/store';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { SpinnerIcon, StopIcon } from '@phosphor-icons/react';
 
 export function ChatInput({
 	selectedModelId,
@@ -99,8 +98,8 @@ export function ChatInput({
 						/>
 					</PromptInputTools>
 					{status !== 'streaming' && status !== 'submitted' ? (
-						<PromptInputSubmit disabled={!(input || status)} status={status}>
-							<ArrowUpIcon className="size-4" />
+							<PromptInputSubmit disabled={!(input || status)} status={status}>
+								<ArrowUp className="size-4" />
 						</PromptInputSubmit>
 					) : (
 						<StopButton />
@@ -146,7 +145,7 @@ function PureModelSelectorCompact({
 				className="flex h-8 items-center gap-2 rounded-lg border-0 bg-background px-2 text-foreground shadow-none transition-colors hover:bg-accent focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
 				type="button"
 			>
-				<CpuIcon size={16} />
+				<Cpu size={16} />
 				<span className="hidden font-medium text-xs sm:block">
 					{selectedModel?.name}
 				</span>
@@ -182,7 +181,7 @@ function PureStopButton() {
 	if (status === 'submitted') {
 		return (
 			<div className={buttonVariants({ variant: 'default', size: 'icon', className: 'rounded-lg' })}>
-				<SpinnerIcon className="size-4 animate-spin" />
+				<Loader2 className="size-4 animate-spin" />
 			</div>
 		);
 	}
@@ -198,7 +197,7 @@ function PureStopButton() {
 				setMessages((messages) => messages);
 			}}
 		>
-			<StopIcon className="size-4" />
+			<Square className="size-4" />
 		</Button>
 	);
 }

@@ -6,22 +6,15 @@ import { useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 import { unparse } from 'papaparse';
 import { SpreadsheetEditor } from '@/components/sheet-editor';
-import {
-	BaseCanvas,
-	CanvasHeader,
-} from './base';
+import { BaseCanvas, CanvasHeader } from './base';
 import { CanvasContent } from './base/canvas-content';
 
-export function DataAnalysisCanvas(_props: { websiteId: string }) {
-	// Pulls the latest artifact snapshot for this tool
+export function SheetCanvas() {
 	const { data, status } = useArtifact(sheetArtifact);
 
 	const isLoading = status === 'loading';
-
-	// Derive rows from artifact payload (supporting multiple shapes)
 	const rawRows = (data as any)?.data ?? (data as any)?.tablePreview ?? [];
 
-	// Build CSV content from rows
 	const derivedCsv = useMemo(() => {
 		if (!rawRows || rawRows.length === 0) return '';
 		const first = rawRows[0];
@@ -39,7 +32,6 @@ export function DataAnalysisCanvas(_props: { websiteId: string }) {
 		return '';
 	}, [rawRows]);
 
-	// Keep editable CSV state local to the canvas for now
 	const [csvContent, setCsvContent] = useState<string>(derivedCsv);
 
 	useEffect(() => {

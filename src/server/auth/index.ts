@@ -26,3 +26,6 @@ export const getSession = async (request?: NextRequest) => {
     headers: request ? request.headers : await headers(),
   })
 }
+
+export type Auth = typeof auth;
+export type Session = Auth["$Infer"]["Session"];

@@ -1,6 +1,6 @@
 'use client';
 
-import { ChartBarIcon, HashIcon, TrendUpIcon } from '@phosphor-icons/react';
+import { BarChart3, Hash, TrendingUp } from 'lucide-react';
 import { motion } from 'motion/react';
 import { memo } from 'react';
 import {
@@ -20,16 +20,16 @@ function PureSuggestedActions({
 	const suggestedActions: SuggestedAction[] = [
 		{
 			text: 'Show me page views over the last 7 days',
-			icon: TrendUpIcon,
+			icon: TrendingUp,
 			type: 'chart',
 		},
-		{ text: 'How many visitors yesterday?', icon: HashIcon, type: 'metric' },
+		{ text: 'How many visitors yesterday?', icon: Hash, type: 'metric' },
 		{
 			text: 'Top traffic sources breakdown',
-			icon: ChartBarIcon,
+			icon: BarChart3,
 			type: 'chart',
 		},
-		{ text: "What's my bounce rate?", icon: HashIcon, type: 'metric' },
+		{ text: "What's my bounce rate?", icon: Hash, type: 'metric' },
 	];
 
 	return (

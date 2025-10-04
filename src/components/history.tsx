@@ -1,10 +1,6 @@
 'use client';
 
-import {
-	ClockCounterClockwiseIcon,
-	MagnifyingGlassIcon,
-	TrashIcon,
-} from '@phosphor-icons/react';
+import { History, Search, Trash2 } from 'lucide-react';
 import { type QueryKey, useQueryClient } from '@tanstack/react-query';
 import { formatDistanceToNow } from 'date-fns';
 import { useRouter } from 'next/navigation';
@@ -112,13 +108,13 @@ export function ChatHistory({ websiteId }: { websiteId: string }) {
 		<Popover onOpenChange={setIsOpen} open={isOpen}>
 			<PopoverTrigger asChild>
 				<Button size="icon" variant="outline">
-					<ClockCounterClockwiseIcon size={16} />
+					<History size={16} />
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent align="end" className="w-[380px] p-0">
 				<div className="p-4">
 					<div className="relative mb-4">
-						<MagnifyingGlassIcon
+						<Search
 							className="-translate-y-1/2 absolute top-1/2 left-3 transform text-muted-foreground"
 							size={14}
 						/>
@@ -167,7 +163,7 @@ export function ChatHistory({ websiteId }: { websiteId: string }) {
 											title="Delete chat"
 											type="button"
 										>
-											<TrashIcon
+											<Trash2
 												className="text-muted-foreground hover:text-destructive"
 												size={14}
 											/>

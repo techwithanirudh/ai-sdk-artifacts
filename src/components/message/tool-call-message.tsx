@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { TextShimmer } from "@/components/text-shimmer";
-import { toolMetadata } from "@databuddy/ai/tools/registry";
+import { toolMetadata } from "@/lib/ai/tools/registry";
 
 export type SupportedToolName = keyof typeof toolMetadata;
 

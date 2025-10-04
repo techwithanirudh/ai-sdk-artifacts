@@ -1,6 +1,6 @@
 'use client';
 
-import { PlusIcon } from '@phosphor-icons/react';
+import { Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -23,7 +23,7 @@ export function ChatHeader({
 		<div className="relative z-10 flex h-22 w-full justify-between rounded-t-2xl border-border border-b bg-background p-6">
 			<div className="flex items-center">
 				<Button onClick={handleNewChat} size="icon" variant="outline">
-					<PlusIcon size={16} />
+					<Plus size={16} />
 				</Button>
 			</div>
 

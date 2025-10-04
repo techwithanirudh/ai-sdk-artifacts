@@ -1,4 +1,4 @@
-import { SparkleIcon } from '@phosphor-icons/react';
+import { Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export const ChatGreeting = () => {
@@ -14,7 +14,7 @@ export const ChatGreeting = () => {
 				initial={{ opacity: 0, y: 10 }}
 				transition={{ delay: 0.5 }}
 			>
-				<SparkleIcon className="h-8 w-8 text-primary" weight="duotone" />
+				<Sparkles className="h-8 w-8 text-primary" />
 			</motion.div>
 			<motion.div
 				animate={{ opacity: 1, y: 0 }}

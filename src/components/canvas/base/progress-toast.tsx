@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckIcon } from '@phosphor-icons/react';
+import { Check } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Spinner } from '@/components/ui/spinner';
@@ -206,7 +206,7 @@ export function ProgressToast({
 										damping: 15,
 									}}
 								>
-									<CheckIcon className="text-foreground" size={16} />
+									<Check className="text-foreground" size={16} />
 								</motion.div>
 								<div>
 									<p className="text-[12px] text-foreground leading-[17px]">

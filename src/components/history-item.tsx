@@ -1,5 +1,5 @@
 import type { Chat } from '@databuddy/db';
-import { DotsThreeVerticalIcon, TrashIcon } from '@phosphor-icons/react';
+import { MoreVertical, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import { memo } from 'react';
 import { toast } from 'sonner';
@@ -55,7 +55,7 @@ const PureChatItem = ({
 						className="mr-0.5 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
 						showOnHover={!isActive}
 					>
-						<DotsThreeVerticalIcon />
+						<MoreVertical />
 						<span className="sr-only">More</span>
 					</SidebarMenuAction>
 				</DropdownMenuTrigger>
@@ -66,7 +66,7 @@ const PureChatItem = ({
 						disabled={deleteChatMutation.isPending}
 						onSelect={handleDelete}
 					>
-						<TrashIcon />
+						<Trash2 />
 						<span>
 							{deleteChatMutation.isPending ? 'Deleting...' : 'Delete'}
 						</span>

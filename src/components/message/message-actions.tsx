@@ -2,19 +2,19 @@ import type { ChatMessage } from '@/lib/types';
 
 import type { Vote } from '@/server/db/schema';
 import {
-	ArrowClockwiseIcon,
-	CheckIcon,
-	CopyIcon,
-	PencilIcon,
-	ThumbsDownIcon,
-	ThumbsUpIcon,
-} from '@phosphor-icons/react';
+	Check,
+	Copy,
+	Pencil,
+	RefreshCcw,
+	ThumbsDown,
+	ThumbsUp,
+} from 'lucide-react';
 import equal from 'fast-deep-equal';
 import { memo, useState } from 'react';
 import { toast } from 'sonner';
 import { useCopyToClipboard } from 'usehooks-ts';
 import { Action, Actions } from '@/components/ai-elements/actions';
-import { trpc } from '@/lib/trpc';
+import { trpc } from '@/trpc/react';
 import { cn } from '@/lib/utils';
 import { useChatActions, useChatMessages, useChatStatus } from '@ai-sdk-tools/store';
 import { deleteTrailingMessages } from '@/app/(chat)/actions';
@@ -151,15 +151,15 @@ export function PureMessageActions({
 				>
 					{setMode && (
 						<Action onClick={() => setMode('edit')} tooltip="Edit">
-							<PencilIcon size={16} />
+							<Pencil size={16} />
 						</Action>
 					)}
 					<Action onClick={handleCopy} tooltip="Copy">
 						<span className="sr-only">{copied ? 'Copied' : 'Copy'}</span>
-						<CopyIcon
+						<Copy
 							className={`size-4 transition-all duration-300 ${copied ? 'scale-0' : 'scale-100'}`}
 						/>
-						<CheckIcon
+						<Check
 							className={`absolute inset-0 m-auto size-4 transition-all duration-300 ${copied ? 'scale-100' : 'scale-0'}`}
 						/>
 					</Action>
@@ -172,18 +172,18 @@ export function PureMessageActions({
 		<Actions className="-ml-0.5">
 			<Action onClick={handleCopy} tooltip="Copy">
 				<span className="sr-only">{copied ? 'Copied' : 'Copy'}</span>
-				<CopyIcon
+				<Copy
 					className={`size-4 transition-all duration-300 ${copied ? 'scale-0' : 'scale-100'}`}
 				/>
-				<CheckIcon
+				<Check
 					className={`absolute inset-0 m-auto size-4 transition-all duration-300 ${copied ? 'scale-100' : 'scale-0'}`}
 				/>
 			</Action>
 
 			<Action onClick={handleRegenerate} tooltip="Regenerate">
-				<ArrowClockwiseIcon size={16} />
+				<RefreshCcw size={16} />
 			</Action>
-			
+		
 			<Action
 				disabled={vote?.isUpvoted || voteMutation.isPending}
 				onClick={() => {
@@ -202,7 +202,7 @@ export function PureMessageActions({
 				}}
 				tooltip="Upvote Response"
 			>
-				<ThumbsUpIcon size={16} />
+				<ThumbsUp size={16} />
 			</Action>
 
 			<Action
@@ -223,7 +223,7 @@ export function PureMessageActions({
 				}}
 				tooltip="Downvote Response"
 			>
-				<ThumbsDownIcon size={16} />
+				<ThumbsDown size={16} />
 			</Action>
 		</Actions>
 	);
