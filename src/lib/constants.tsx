@@ -1,16 +1,18 @@
-import BetterAuth from '@/components/logos/better-auth'
+import { SparklesIcon } from 'lucide-react'
 
-const APP_NAME = 'Better-Auth Starter'
-const APP_DEFAULT_TITLE = 'Better-Auth Next.js Starter'
-const APP_TITLE_TEMPLATE = '%s | Better-Auth Next.js Starter'
+const APP_NAME = 'AI SDK Artifacts'
+const APP_DEFAULT_TITLE = 'AI SDK Artifacts'
+const APP_TITLE_TEMPLATE = '%s | AI SDK Artifacts'
 const APP_DESCRIPTION =
-  'Better-Auth Next.js Starter is a starter kit for building a Next.js application with Better-Auth'
+  'AI SDK Artifacts is a starter kit for building a Next.js application with AI SDK'
 
 const logo = (
   <>
-    <BetterAuth className="size-6" fill="currentColor" />
+    <SparklesIcon className="size-5" fill="var(--muted-foreground)" />
   </>
 )
+
+const isProductionEnvironment = process.env.NODE_ENV === 'production'
 
 export {
   APP_NAME,
@@ -18,4 +20,5 @@ export {
   APP_TITLE_TEMPLATE,
   APP_DESCRIPTION,
   logo,
+  isProductionEnvironment,
 }
